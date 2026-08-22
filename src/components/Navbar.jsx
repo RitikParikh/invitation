@@ -18,16 +18,16 @@ export default function Navbar() {
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
+  const isHome = location.pathname === '/'
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${scrolled ? 'bg-cream/95 shadow-md backdrop-blur-sm' : 'bg-transparent'
         }`}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-5 sm:px-8 py-3">
-        <NavLink to="/" className="font-display text-2xl sm:text-3xl text-maroon">
-          {wedding.brideFirst} &amp; {wedding.groomFirst}
-        </NavLink>
+       {!isHome &&  <NavLink to="/" className="font-display text-2xl sm:text-3xl text-maroon">
+         {wedding.groomFirst} &amp; {wedding.brideFirst}
+        </NavLink> }
 
         {/* desktop */}
         {/* <nav className="hidden md:flex items-center gap-8 font-heading text-lg">

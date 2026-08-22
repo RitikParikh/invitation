@@ -1,21 +1,74 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import ScratchCard from '../components/ScratchCard'
 import FloralCorner from '../components/FloralCorner'
 import FloatingPetals from '../components/FloatingPetals'
 import Countdown from '../components/Countdown'
+import Carousel from '../components/Carousel'
 import { wedding } from '../weddingConfig'
 import { fireRevealConfetti } from '../lib/confetti'
 import Footer from '../components/Footer'
 
+const teaserCards = [
+    {
+        title: "You're Invited",
+        text: 'By the boundless grace of Shri Nath Ji.\nJoin us as we begin a new chapter filled with love, laughter, and tradition.',
+        flourish: true,
+    },
+    {
+        icon: '❦',
+        eyebrow: '',
+        title: 'Mr. Ritik Parikh',
+        text: 'Grandson of Mrs. Chandrakanta & Late Shri Natwarlal Parikh,\nSon of Mrs. Monika Yashwant Parikh',
+    },
+    {
+        icon: '✾',
+        eyebrow: '',
+        title: 'Ms. Rashmi Goyal',
+        text: 'Granddaughter of Mrs. Geeta Ghanshyam Ji Goyal,\nDaughter of Mrs. Babita Sunil Goyal',
+        // to: '/our-story',
+        // cta: 'Read Our Story',
+    }
+    //,
+    // {
+    //     title: "You're Invited",
+    //     text: 'Join us as we begin a new chapter filled with love, laughter, and tradition.',
+    //     flourish: true,
+    // },
+    // {
+    //     icon: '❦',
+    //     eyebrow: 'How it began',
+    //     title: 'A Chance Meeting',
+    //     text: `${wedding.groomFirst} and ${wedding.brideFirst} met at a mutual friend's birthday party in Mumbai and instantly hit it off over a shared love of old Bollywood music.`,
+    // },
+    // {
+    //     icon: '✾',
+    //     eyebrow: 'Chapter by chapter',
+    //     title: 'Our Story',
+    //     text: 'From long phone calls and weekend trips to a sunset proposal by Lake Pichola — the moments that brought us here.',
+    //     to: '/our-story',
+    //     cta: 'Read Our Story',
+    // },
+]
+
 export default function Home() {
     const [revealed, setRevealed] = useState(false)
+    const teaserRef = useRef(null)
 
     const handleReveal = () => {
         setRevealed(true)
         fireRevealConfetti()
     }
+
+    // once the reveal animation has played, glide down to the invitation
+    useEffect(() => {
+        if (!revealed) return
+        const id = setTimeout(() => {
+            teaserRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }, 6000)
+        return () => clearTimeout(id)
+    }, [revealed])
 
     return (
         <div className="min-h-screen flex flex-col">
@@ -30,7 +83,7 @@ export default function Home() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="font-heading tracking-[0.3em] uppercase text-gold text-xs sm:text-sm mb-3"
+                        className="font-heading font-semibold tracking-[0.3em] uppercase text-[#e36393] text-xs sm:text-sm mb-3"
                     >
                         Something Special Awaits
                     </motion.p>
@@ -53,7 +106,7 @@ export default function Home() {
                     >
                         <ScratchCard onReveal={handleReveal}>
                             <div className="flex flex-col items-center justify-center text-center">
-                                <p className="font-heading font-semibold tracking-[0.12em] uppercase text-gold text-base sm:text-lg mb-2">
+                                <p className="font-heading font-semibold tracking-[0.12em] uppercase text-[#e36393] text-base sm:text-lg mb-2">
                                     Save Our Date
                                 </p>
                                 <p className="font-heading font-semibold text-xl sm:text-3xl md:text-4xl text-maroon leading-snug mb-2 text-balance">
@@ -127,18 +180,8 @@ export default function Home() {
                         transition={{ duration: 0.6 }}
 
                     >
-                        <section className="bg-blush py-16 px-5">
-
-                            <div className="max-w-4xl mx-auto text-center">
-                                <p className="font-display text-4xl text-maroon mb-4">You're Invited</p>
-                                <p className="font-body text-maroon-dark/80 max-w-xl mx-auto leading-relaxed">
-                                    Join us as we begin a new chapter filled with love, laughter, and tradition. Explore our
-                                    story, the celebration schedule, and let us know you'll be there.
-                                </p>
-                                <div className="flex justify-center gap-2 mt-6 text-gold text-2xl">
-                                    <span>✿</span><span>✿</span><span>✿</span>
-                                </div>
-                            </div>
+                        <section ref={teaserRef} className="bg-blush py-12 scroll-mt-20">
+                            <Carousel cards={teaserCards} interval={5000} />
                         </section>
                         <Footer />
                     </motion.div>)}
