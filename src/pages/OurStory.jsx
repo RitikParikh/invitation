@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { wedding } from '../weddingConfig'
+import { useLang } from '../lib/LanguageContext'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -7,6 +7,8 @@ const fadeUp = {
 }
 
 export default function OurStory() {
+  const { t, w } = useLang()
+
   return (
     <div className="min-h-screen pt-24 pb-16 bg-cream">
       {/* header */}
@@ -16,9 +18,9 @@ export default function OurStory() {
           whileInView="show"
           viewport={{ once: true }}
           variants={fadeUp}
-          className="font-heading tracking-[0.3em] uppercase text-gold text-xs sm:text-sm mb-3"
+          className="font-heading tracking-[0.3em] uppercase text-[#e36393] font-bold text-xs sm:text-sm mb-3"
         >
-          The Journey
+          {t('storyEyebrow')}
         </motion.p>
         <motion.h1
           initial="hidden"
@@ -27,14 +29,14 @@ export default function OurStory() {
           variants={fadeUp}
           className="font-display text-5xl sm:text-6xl text-maroon"
         >
-          Our Story
+          {t('storyTitle')}
         </motion.h1>
       </section>
 
       {/* timeline */}
       <section className="max-w-3xl mx-auto px-5 mb-24">
         <div className="relative border-l-2 border-gold/40 pl-8 space-y-12">
-          {wedding.story.map((item, i) => (
+          {w.story.map((item, i) => (
             <motion.div
               key={item.year}
               initial="hidden"
@@ -63,14 +65,14 @@ export default function OurStory() {
             variants={fadeUp}
             className="font-display text-4xl sm:text-5xl text-maroon text-center mb-4"
           >
-            Celebration Schedule
+            {t('scheduleTitle')}
           </motion.h2>
           <p className="text-center text-maroon-dark/70 mb-12 max-w-xl mx-auto">
-            A joyful week of ceremonies leading up to our big day — we'd love for you to join as many as you can.
+            {t('scheduleSubtitle')}
           </p>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {wedding.events.map((ev, i) => (
+            {w.events.map((ev, i) => (
               <motion.div
                 key={ev.name}
                 initial="hidden"
@@ -95,17 +97,17 @@ export default function OurStory() {
       <section className="max-w-3xl mx-auto px-5 py-16 text-center">
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}>
           <p className="font-heading tracking-[0.3em] uppercase text-gold text-xs sm:text-sm mb-3">
-            Where to find us
+            {t('venueEyebrow')}
           </p>
-          <h2 className="font-display text-4xl text-maroon mb-3">{wedding.venue}</h2>
-          <p className="text-maroon-dark/75 mb-6">{wedding.address}</p>
+          <h2 className="font-display text-4xl text-maroon mb-3">{w.venue}</h2>
+          <p className="text-maroon-dark/75 mb-6">{w.address}</p>
           <a
-            href={wedding.mapsUrl}
+            href={w.mapsUrl}
             target="_blank"
             rel="noreferrer"
             className="inline-block px-6 py-3 rounded-full bg-maroon text-cream font-heading font-semibold hover:bg-maroon-dark transition-colors"
           >
-            View on Google Maps
+            {t('mapsCta')}
           </a>
         </motion.div>
       </section>

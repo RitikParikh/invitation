@@ -2,9 +2,11 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import { RevealProvider } from './lib/RevealContext'
+import { LanguageProvider } from './lib/LanguageContext'
 import Home from './pages/Home'
 import OurStory from './pages/OurStory'
-import RSVP from './pages/RSVP'
+import Gallery from './pages/Gallery'
 
 const pageTransition = {
   initial: { opacity: 0, y: 12 },
@@ -35,10 +37,10 @@ function AnimatedRoutes() {
           }
         />
         <Route
-          path="/rsvp"
+          path="/gallery"
           element={
             <motion.div {...pageTransition}>
-              <RSVP />
+              <Gallery />
             </motion.div>
           }
         />
@@ -52,13 +54,17 @@ function App() {
   const isHome = location.pathname === '/'
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <main className="flex-1">
-        <AnimatedRoutes />
-      </main>
-      {!isHome && <Footer />}
-    </div>
+    <LanguageProvider>
+      <RevealProvider>
+        <div className="flex flex-col min-h-screen">
+          <Navbar />
+          <main className="flex-1">
+            <AnimatedRoutes />
+          </main>
+          {!isHome && <Footer />}
+        </div>
+      </RevealProvider>
+    </LanguageProvider>
   )
 }
 

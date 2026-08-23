@@ -1,16 +1,19 @@
 import { useState, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { wedding } from '../weddingConfig'
+import { useReveal } from '../lib/RevealContext'
+import { useLang } from '../lib/LanguageContext'
+import LangSwitch from './LangSwitch'
 
 const links = [
-  { to: '/', label: 'Home' },
-  { to: '/our-story', label: 'Our Story' },
-  { to: '/rsvp', label: 'RSVP & Gallery' },
+  { to: '/', key: 'navHome' },
+  { to: '/our-story', key: 'navStory' },
+  { to: '/gallery', key: 'navGallery' },
 ]
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
+  // the route the drawer was opened on — navigating anywhere else closes it for free
+  const [openPath, setOpenPath] = useState(null)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -18,48 +21,74 @@ export default function Navbar() {
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-  const isHome = location.pathname === '/'
+  const { pathname } = useLocation()
+  const { revealed } = useReveal()
+  const { t, w, linkTo } = useLang()
+  const isHome = pathname === '/'
+  const open = openPath === pathname
+
+  // on the home page the nav holds back until the card is scratched open —
+  // only the language switch stays reachable
+  const showNav = !isHome || revealed
+
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${scrolled ? 'bg-cream/95 shadow-md backdrop-blur-sm' : 'bg-transparent'
+    <motion.header
+      initial={{ opacity: 0, y: -16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${(scrolled || open) && showNav ? 'bg-cream/95 shadow-md backdrop-blur-sm' : 'bg-transparent'
         }`}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-5 sm:px-8 py-3">
-       {!isHome &&  <NavLink to="/" className="font-display text-2xl sm:text-3xl text-maroon">
-         {wedding.groomFirst} &amp; {wedding.brideFirst}
-        </NavLink> }
+        {showNav ? (
+          <NavLink to={linkTo('/')} className="font-display text-2xl sm:text-3xl text-maroon">
+            {w.groomFirst} &amp; {w.brideFirst}
+          </NavLink>
+        ) : (
+          <span />
+        )}
 
-        {/* desktop */}
-        {/* <nav className="hidden md:flex items-center gap-8 font-heading text-lg">
-          {links.map((l) => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              className={({ isActive }) =>
-                `transition-colors ${
-                  isActive ? 'text-maroon font-semibold' : scrolled ? 'text-maroon-dark/80' : 'text-maroon-dark'
-                } hover:text-gold`
-              }
+        <div className="flex items-center gap-4 sm:gap-6">
+          {/* desktop */}
+          {showNav && (
+            <nav className="hidden md:flex items-center gap-8 font-heading text-lg">
+              {links
+                .filter((l) => l.to !== '/')
+                .map((l) => (
+                  <NavLink
+                    key={l.to}
+                    to={linkTo(l.to)}
+                    className={({ isActive }) =>
+                      `transition-colors hover:text-gold ${isActive ? 'text-maroon font-semibold' : 'text-maroon-dark/80'
+                      }`
+                    }
+                  >
+                    {t(l.key)}
+                  </NavLink>
+                ))}
+            </nav>
+          )}
+
+          <LangSwitch />
+
+          {/* mobile toggle */}
+          {showNav && (
+            <button
+              aria-label={open ? 'Close menu' : 'Open menu'}
+              aria-expanded={open}
+              className="md:hidden flex flex-col justify-center items-center gap-1.5 w-9 h-9"
+              onClick={() => setOpenPath((p) => (p === pathname ? null : pathname))}
             >
-              {l.label}
-            </NavLink>
-          ))}
-        </nav> */}
-
-        {/* mobile toggle */}
-        {/* <button
-          aria-label="Toggle menu"
-          className="md:hidden flex flex-col justify-center items-center gap-1.5 w-9 h-9"
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className={`block h-0.5 w-6 bg-maroon transition-transform ${open ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block h-0.5 w-6 bg-maroon transition-opacity ${open ? 'opacity-0' : ''}`} />
-          <span className={`block h-0.5 w-6 bg-maroon transition-transform ${open ? '-rotate-45 -translate-y-2' : ''}`} />
-        </button> */}
+              <span className={`block h-0.5 w-6 bg-maroon transition-transform ${open ? 'rotate-45 translate-y-2' : ''}`} />
+              <span className={`block h-0.5 w-6 bg-maroon transition-opacity ${open ? 'opacity-0' : ''}`} />
+              <span className={`block h-0.5 w-6 bg-maroon transition-transform ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+            </button>
+          )}
+        </div>
       </div>
 
       <AnimatePresence>
-        {open && (
+        {open && showNav && (
           <motion.nav
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
@@ -71,19 +100,19 @@ export default function Navbar() {
               {links.map((l) => (
                 <NavLink
                   key={l.to}
-                  to={l.to}
-                  onClick={() => setOpen(false)}
+                  to={linkTo(l.to)}
+                  onClick={() => setOpenPath(null)}
                   className={({ isActive }) =>
                     `${isActive ? 'text-maroon font-semibold' : 'text-maroon-dark'} hover:text-gold`
                   }
                 >
-                  {l.label}
+                  {t(l.key)}
                 </NavLink>
               ))}
             </div>
           </motion.nav>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   )
 }
