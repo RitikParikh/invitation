@@ -21,7 +21,7 @@ export const strings = {
         groomTitle: 'Mr. Ritik Parikh',
         groomText:
             'Grandson of Mrs. Chandrakanta & Late Shri Natwarlal Parikh,\nSon of Mrs. Monika Yashwant Parikh',
-        brideTitle: 'Ms. Rashmi Goyal',
+        brideTitle: 'Miss. Rashmi Goyal',
         brideText:
             'Granddaughter of Mrs. Geeta Ghanshyam Ji Goyal,\nDaughter of Mrs. Babita Sunil Goyal',
 
@@ -60,12 +60,12 @@ export const strings = {
         inviteTitle: 'आप आमंत्रित हैं',
         inviteText:
             'श्री नाथजी की असीम कृपा से।\nप्रेम, हँसी और परंपरा से भरे इस नए अध्याय के आरंभ में हमारे साथ सम्मिलित हों।',
-        groomTitle: 'श्री रितिक पारिख',
+        groomTitle: 'चिरंजीव रितिक पारिख',
         groomText:
-            'श्रीमती चंद्रकांता एवं स्वर्गीय श्री नटवरलाल पारिख के पौत्र,\nश्रीमती मोनिका यशवंत पारिख के सुपुत्र',
-        brideTitle: 'सुश्री रश्मि गोयल',
+            'श्रीमती चंद्रकांता एवं स्वर्गीय नटवरलाल पारिख के सुपौत्र,\nसौभाग्यवती मोनिका यशवंत पारिख के सुपुत्र',
+        brideTitle: 'सौभाग्यकांक्षी रश्मि गोयल',
         brideText:
-            'श्रीमती गीता घनश्याम जी गोयल की पौत्री,\nश्रीमती बबीता सुनील गोयल की सुपुत्री',
+            'सौभाग्यवती गीता घनश्याम जी गोयल की सुपौत्री,\nसौभाग्यवती बबीता सुनील गोयल की सुपुत्री',
 
         storyEyebrow: 'यह सफ़र',
         storyTitle: 'हमारी कहानी',

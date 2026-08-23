@@ -82,7 +82,7 @@ export const wedding = {
     'https://images.unsplash.com/photo-1622037022824-0c71d511ad78?w=800&q=80',
   ],
   contact: {
-    phone: '+91 98765 43210',
+    phone: '+91 ----- -----',
     email: 'rashmi.ritik.wedding@example.com',
   },
 }
