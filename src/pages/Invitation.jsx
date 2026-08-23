@@ -12,21 +12,14 @@ import { useReveal } from '../lib/RevealContext'
 import { useLang } from '../lib/LanguageContext'
 import Footer from '../components/Footer'
 
-const buildTeaserCards = (t) => [
-    {
-        icon: '॥ श्री नाथजी ॥',
-        iconClass: 'font-devanagari font-semibold text-gold text-lg sm:text-xl tracking-wide mb-4',
-        title: t('inviteTitle'),
-        text: t('inviteText'),
-        flourish: true,
-    },
-    {
+const buildTeaserCards = (t, brideFirst) => {
+    const groomCard = {
         icon: '❦',
         eyebrow: '',
         title: t('groomTitle'),
         text: t('groomText'),
-    },
-    {
+    }
+    const brideCard = {
         icon: '✾',
         eyebrow: '',
         title: t('brideTitle'),
@@ -34,6 +27,17 @@ const buildTeaserCards = (t) => [
         // to: '/our-story',
         // cta: 'Read Our Story',
     }
+
+    return [
+    {
+        icon: '॥ श्री नाथजी ॥',
+        iconClass: 'font-devanagari font-semibold text-gold text-lg sm:text-xl tracking-wide mb-4',
+        title: t('inviteTitle'),
+        text: t('inviteText'),
+        flourish: true,
+    },
+    // /invitation/u2 leads with the bride
+    ...(brideFirst ? [brideCard, groomCard] : [groomCard, brideCard])
     //,
     // {
     //     title: "You're Invited",
@@ -54,14 +58,15 @@ const buildTeaserCards = (t) => [
     //     to: '/our-story',
     //     cta: 'Read Our Story',
     // },
-]
+    ]
+}
 
 export default function Invitation() {
     const [revealed, setRevealed] = useState(false)
     const teaserRef = useRef(null)
     const { reveal } = useReveal()
-    const { t, w } = useLang()
-    const teaserCards = buildTeaserCards(t)
+    const { t, w, couple, brideFirst } = useLang()
+    const teaserCards = buildTeaserCards(t, brideFirst)
 
     const handleReveal = () => {
         setRevealed(true)
@@ -102,7 +107,7 @@ export default function Invitation() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="font-display text-5xl sm:text-6xl text-maroon leading-tight mb-8"
                     >
-                        {w.groomFirst} &amp; {w.brideFirst}
+                        {couple[0]} &amp; {couple[1]}
                     </motion.h1>
 
                     {/* the single big scratch flower */}

@@ -4,3 +4,7 @@ export const ROUTES = {
     story: '/our-story',
     gallery: '/gallery',
 }
+
+// /invitation and /invitation/<variant> are both the invitation page
+export const isInvitationPath = (pathname) =>
+    pathname === ROUTES.invitation || pathname.startsWith(`${ROUTES.invitation}/`)

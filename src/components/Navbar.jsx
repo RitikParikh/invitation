@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useReveal } from '../lib/RevealContext'
 import { useLang } from '../lib/LanguageContext'
 import LangSwitch from './LangSwitch'
-import { ROUTES } from '../lib/routes'
+import { ROUTES, isInvitationPath } from '../lib/routes'
 
 const links = [
   { to: ROUTES.invitation, key: 'navHome' },
@@ -24,8 +24,8 @@ export default function Navbar() {
   }, [])
   const { pathname } = useLocation()
   const { revealed } = useReveal()
-  const { t, w, linkTo } = useLang()
-  const isInvitation = pathname === ROUTES.invitation
+  const { t, couple, linkTo } = useLang()
+  const isInvitation = isInvitationPath(pathname)
   const open = openPath === pathname
 
   // on the home page the nav holds back until the card is scratched open —
@@ -44,7 +44,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto flex items-center justify-between px-5 sm:px-8 py-3">
         {showNav ? (
           <NavLink to={linkTo(ROUTES.invitation)} className="font-display text-2xl sm:text-3xl text-maroon">
-            {w.groomFirst} &amp; {w.brideFirst}
+            {couple[0]} &amp; {couple[1]}
           </NavLink>
         ) : (
           <span />

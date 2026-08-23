@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import { RevealProvider } from './lib/RevealContext'
 import { LanguageProvider } from './lib/LanguageContext'
-import { ROUTES } from './lib/routes'
+import { ROUTES, isInvitationPath } from './lib/routes'
 import Invitation from './pages/Invitation'
 import OurStory from './pages/OurStory'
 import Gallery from './pages/Gallery'
@@ -36,6 +36,15 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
+        {/* /invitation/u2 = bride first; other variants fall through to the default order */}
+        <Route
+          path={`${ROUTES.invitation}/:variant`}
+          element={
+            <motion.div {...pageTransition}>
+              <Invitation />
+            </motion.div>
+          }
+        />
         <Route
           path={ROUTES.story}
           element={
@@ -59,7 +68,7 @@ function AnimatedRoutes() {
 
 function App() {
   const location = useLocation()
-  const isInvitation = location.pathname === ROUTES.invitation
+  const isInvitation = isInvitationPath(location.pathname)
 
   return (
     <LanguageProvider>
