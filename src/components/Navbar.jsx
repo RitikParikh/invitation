@@ -4,11 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useReveal } from '../lib/RevealContext'
 import { useLang } from '../lib/LanguageContext'
 import LangSwitch from './LangSwitch'
+import { ROUTES } from '../lib/routes'
 
 const links = [
-  { to: '/', key: 'navHome' },
-  { to: '/our-story', key: 'navStory' },
-  { to: '/gallery', key: 'navGallery' },
+  { to: ROUTES.invitation, key: 'navHome' },
+  { to: ROUTES.story, key: 'navStory' },
+  { to: ROUTES.gallery, key: 'navGallery' },
 ]
 
 export default function Navbar() {
@@ -24,12 +25,13 @@ export default function Navbar() {
   const { pathname } = useLocation()
   const { revealed } = useReveal()
   const { t, w, linkTo } = useLang()
-  const isHome = pathname === '/'
+  const isInvitation = pathname === ROUTES.invitation
   const open = openPath === pathname
 
   // on the home page the nav holds back until the card is scratched open —
   // only the language switch stays reachable
-  const showNav = !isHome || revealed
+  // const showNav = !isInvitation || revealed
+  const showNav = !isInvitation
 
   return (
     <motion.header
@@ -41,7 +43,7 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-5 sm:px-8 py-3">
         {showNav ? (
-          <NavLink to={linkTo('/')} className="font-display text-2xl sm:text-3xl text-maroon">
+          <NavLink to={linkTo(ROUTES.invitation)} className="font-display text-2xl sm:text-3xl text-maroon">
             {w.groomFirst} &amp; {w.brideFirst}
           </NavLink>
         ) : (
@@ -53,7 +55,7 @@ export default function Navbar() {
           {showNav && (
             <nav className="hidden md:flex items-center gap-8 font-heading text-lg">
               {links
-                .filter((l) => l.to !== '/')
+                .filter((l) => l.to !== ROUTES.invitation)
                 .map((l) => (
                   <NavLink
                     key={l.to}

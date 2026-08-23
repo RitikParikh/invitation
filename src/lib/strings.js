@@ -49,7 +49,7 @@ export const strings = {
 
         heroEyebrow: 'कुछ ख़ास आपका इंतज़ार कर रहा है',
         heroSaveDate: 'तारीख़ याद रखें',
-        heroFormal: 'औपचारिक निमंत्रण शीघ्र ही',
+        heroFormal: 'निमंत्रण शीघ्र ही',
 
         cdDays: 'दिन',
         cdHours: 'घंटे',

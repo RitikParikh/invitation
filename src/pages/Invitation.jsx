@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import ScratchCard from '../components/ScratchCard'
 import FloralCorner from '../components/FloralCorner'
@@ -57,7 +56,7 @@ const buildTeaserCards = (t) => [
     // },
 ]
 
-export default function Home() {
+export default function Invitation() {
     const [revealed, setRevealed] = useState(false)
     const teaserRef = useRef(null)
     const { reveal } = useReveal()

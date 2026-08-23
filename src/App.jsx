@@ -1,10 +1,11 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import { RevealProvider } from './lib/RevealContext'
 import { LanguageProvider } from './lib/LanguageContext'
-import Home from './pages/Home'
+import { ROUTES } from './lib/routes'
+import Invitation from './pages/Invitation'
 import OurStory from './pages/OurStory'
 import Gallery from './pages/Gallery'
 
@@ -15,21 +16,28 @@ const pageTransition = {
   transition: { duration: 0.35, ease: 'easeInOut' },
 }
 
+// '/' hops to the invitation carrying the query string (?language=) and any hash
+function RedirectToInvitation() {
+  const { search, hash } = useLocation()
+  return <Navigate to={`${ROUTES.invitation}${search}${hash}`} replace />
+}
+
 function AnimatedRoutes() {
   const location = useLocation()
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<RedirectToInvitation />} />
         <Route
-          path="/"
+          path={ROUTES.invitation}
           element={
             <motion.div {...pageTransition}>
-              <Home />
+              <Invitation />
             </motion.div>
           }
         />
         <Route
-          path="/our-story"
+          path={ROUTES.story}
           element={
             <motion.div {...pageTransition}>
               <OurStory />
@@ -37,7 +45,7 @@ function AnimatedRoutes() {
           }
         />
         <Route
-          path="/gallery"
+          path={ROUTES.gallery}
           element={
             <motion.div {...pageTransition}>
               <Gallery />
@@ -51,7 +59,7 @@ function AnimatedRoutes() {
 
 function App() {
   const location = useLocation()
-  const isHome = location.pathname === '/'
+  const isInvitation = location.pathname === ROUTES.invitation
 
   return (
     <LanguageProvider>
@@ -61,7 +69,7 @@ function App() {
           <main className="flex-1">
             <AnimatedRoutes />
           </main>
-          {!isHome && <Footer />}
+          {!isInvitation && <Footer />}
         </div>
       </RevealProvider>
     </LanguageProvider>
