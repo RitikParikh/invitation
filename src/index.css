@@ -40,6 +40,19 @@ body {
   font-family: 'Noto Serif Devanagari', 'Kohinoor Devanagari', 'Nirmala UI', serif;
 }
 
+/* Great Vibes / Cormorant / Poppins carry no Devanagari glyphs, so in Hindi the
+   whole page borrows the Devanagari serif instead of a random system fallback. */
+html[lang='hi'] body,
+html[lang='hi'] .font-display,
+html[lang='hi'] .font-heading {
+  font-family: 'Noto Serif Devanagari', 'Kohinoor Devanagari', 'Nirmala UI', serif;
+}
+
+/* the script has taller ascenders — script-sized headings need a little air */
+html[lang='hi'] .font-display {
+  line-height: 1.35;
+}
+
 .mandala-border {
   border-image-slice: 1;
 }

@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { wedding } from '../weddingConfig'
+import { useLang } from '../lib/LanguageContext'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 }
 
-export default function RSVP() {
+export default function Gallery() {
   const [form, setForm] = useState({
     name: '',
     guests: '1',
@@ -17,6 +17,7 @@ export default function RSVP() {
   })
   const [submitted, setSubmitted] = useState(false)
   const [lightbox, setLightbox] = useState(null)
+  const { t, w } = useLang()
 
   const toggleEvent = (name) => {
     setForm((f) => ({
@@ -34,8 +35,8 @@ export default function RSVP() {
 
   return (
     <div className="min-h-screen pt-24 pb-16 bg-cream">
-      <section className="text-center px-5 mb-14">
-        <motion.p
+      {/* <section className="text-center px-5 mb-14"> */}
+        {/* <motion.p
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
@@ -52,11 +53,11 @@ export default function RSVP() {
           className="font-display text-5xl sm:text-6xl text-maroon"
         >
           RSVP
-        </motion.h1>
-      </section>
+        </motion.h1> */}
+      {/* </section> */}
 
       {/* RSVP form */}
-      <section className="max-w-xl mx-auto px-5 mb-24">
+      {/* <section className="max-w-xl mx-auto px-5 mb-24">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -184,7 +185,7 @@ export default function RSVP() {
             )}
           </AnimatePresence>
         </motion.div>
-      </section>
+      </section> */}
 
       {/* Gallery */}
       <section className="max-w-6xl mx-auto px-5">
@@ -195,11 +196,11 @@ export default function RSVP() {
           variants={fadeUp}
           className="font-display text-4xl sm:text-5xl text-maroon text-center mb-10"
         >
-          Our Gallery
+          {t('galleryTitle')}
         </motion.h2>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
-          {wedding.gallery.map((src, i) => (
+          {w.gallery.map((src, i) => (
             <motion.button
               key={src}
               initial="hidden"

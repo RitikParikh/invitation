@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLang } from '../lib/LanguageContext'
 
 const variants = {
     enter: (dir) => ({ opacity: 0, x: dir > 0 ? 80 : -80 }),
@@ -12,6 +13,7 @@ export default function Carousel({ cards = [], interval = 3000 }) {
     const [[index, direction], setState] = useState([0, 0])
     const [paused, setPaused] = useState(false)
     const [inView, setInView] = useState(false)
+    const { linkTo } = useLang()
     const containerRef = useRef(null)
 
     const count = cards.length
@@ -104,7 +106,7 @@ export default function Carousel({ cards = [], interval = 3000 }) {
 
                     {cta && card.to && (
                         <Link
-                            to={card.to}
+                            to={linkTo(card.to)}
                             className="inline-block mt-8 px-6 py-3 rounded-full bg-gold text-maroon-dark font-heading font-semibold text-base shadow hover:bg-gold-light transition-colors"
                         >
                             {card.cta ?? 'View'}

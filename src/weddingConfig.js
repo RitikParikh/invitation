@@ -51,19 +51,19 @@ export const wedding = {
   ],
   story: [
     {
-      year: '2019',
+      year: '2021',
       title: 'First Meeting',
-      text: 'Rashmi and Ritik met at a mutual friend\'s birthday party in Mumbai and instantly hit it off over a shared love of old Bollywood music.',
+      text: 'Rashmi and Ritik met at a office new building inauguration after covid',
     },
     {
       year: '2021',
       title: 'Growing Closer',
-      text: 'What started as long phone calls turned into weekend trips, festivals together, and meeting each other\'s families.',
+      text: 'What started as long phone calls turned into daily walks, festivals together.',
     },
     {
       year: '2024',
-      title: 'The Proposal',
-      text: 'Ritik proposed at sunset by Lake Pichola in Udaipur, the very city where they will now begin their married life.',
+      title: 'Pre-wedding engagement',
+      text: 'Two families said yes, and two hearts became one. Our beautiful journey officially started with a traditional blessing.',
     },
     {
       year: '2026',
@@ -86,3 +86,78 @@ export const wedding = {
     email: 'rashmi.ritik.wedding@example.com',
   },
 }
+
+// Devanagari version of everything guests actually read. Anything omitted here
+// falls back to the English value above, so partial translations are fine.
+export const weddingHi = {
+  ...wedding,
+  brideFirst: 'रश्मि',
+  groomFirst: 'रितिक',
+  brideFull: 'रश्मि गोयल',
+  groomFull: 'रितिक पारिख',
+  weddingDateDisplay: '11 दिसंबर 2026',
+  city: 'उदयपुर, राजस्थान',
+  venue: 'वैली व्यू गार्डन वाटिका',
+  address: 'उदयपुर, राजस्थान',
+  events: [
+    {
+      name: 'सगाई',
+      date: '11 दिसंबर 2026',
+      time: 'प्रातः 9:00',
+      venue: 'निवास स्थान',
+      description: 'वर-वधू के शुभ मिलन का पहला वचन, परिवारजनों के आशीर्वाद के साथ।',
+    },
+    {
+      name: 'हल्दी',
+      date: '11 दिसंबर 2026',
+      time: 'प्रातः 9:00',
+      venue: 'निवास स्थान',
+      description: 'हल्दी की मंगल रस्म, जो वर-वधू को सुख-समृद्धि और निखार का आशीर्वाद देती है।',
+    },
+    {
+      name: 'संगीत',
+      date: '11 दिसंबर 2026',
+      time: 'सायं 7:00',
+      venue: 'ग्रैंड पैलेस बॉलरूम',
+      description: 'परिवार और मित्रों के साथ नृत्य, संगीत और प्रस्तुतियों की एक यादगार संध्या।',
+    },
+    {
+      name: 'प्रीतिभोज',
+      date: '11 दिसंबर 2026',
+      time: 'सायं 7:30',
+      venue: 'ग्रैंड पैलेस बैंक्वेट हॉल',
+      description: 'पति-पत्नी के रूप में पहली बार, स्नेहभोज और उत्सव के साथ।',
+    },
+    {
+      name: 'विवाह संस्कार',
+      date: '11 दिसंबर 2026',
+      time: 'प्रातः 10:00',
+      venue: 'ग्रैंड पैलेस लॉन',
+      description: 'पवित्र फेरे और रीति-रिवाज, जो रश्मि और रितिक को जीवन भर के लिए एक करते हैं।',
+    },
+  ],
+  story: [
+    {
+      year: '2021',
+      title: 'पहली मुलाकात',
+      text: 'कोविड के बाद कार्यालय के नए भवन के उद्घाटन समारोह में रश्मि और रितिक की पहली मुलाकात हुई।',
+    },
+    {
+      year: '2021',
+      title: 'बढ़ती नज़दीकियाँ',
+      text: 'लंबी फ़ोन बातों का सिलसिला रोज़ की सैर और साथ मनाए त्योहारों में बदल गया।',
+    },
+    {
+      year: '2024',
+      title: 'विवाह पूर्व सगाई',
+      text: 'दोनों परिवारों की सहमति मिली और दो दिल एक हो गए। पारंपरिक आशीर्वाद के साथ हमारी इस सुंदर यात्रा का विधिवत आरंभ हुआ।',
+    },
+    {
+      year: '2026',
+      title: 'विवाह',
+      text: 'परिवार, मित्रों और पीढ़ियों से चली आ रही परंपराओं के सान्निध्य में रश्मि और रितिक विवाह के बंधन में बँध रहे हैं।',
+    },
+  ],
+}
+
+export const getWedding = (lang) => (lang === 'hi' ? weddingHi : wedding)

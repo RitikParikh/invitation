@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import ScratchCard from '../components/ScratchCard'
 import FloralCorner from '../components/FloralCorner'
@@ -8,30 +7,37 @@ import Countdown from '../components/Countdown'
 import Carousel from '../components/Carousel'
 import { wedding } from '../weddingConfig'
 import { fireRevealConfetti } from '../lib/confetti'
+
+import { useReveal } from '../lib/RevealContext'
+import { useLang } from '../lib/LanguageContext'
 import Footer from '../components/Footer'
 
-const teaserCards = [
-    {
-        icon: '॥ श्री नाथजी ॥',
-        iconClass: 'font-devanagari font-semibold text-gold text-lg sm:text-xl tracking-wide mb-4',
-        title: "You're Invited",
-        text: 'By the boundless grace of Shri Nath Ji.\nJoin us as we begin a new chapter filled with love, laughter, and tradition.',
-        flourish: true,
-    },
-    {
+const buildTeaserCards = (t, brideFirst) => {
+    const groomCard = {
         icon: '❦',
         eyebrow: '',
-        title: 'Mr. Ritik Parikh',
-        text: 'Grandson of Mrs. Chandrakanta & Late Shri Natwarlal Parikh,\nSon of Mrs. Monika Yashwant Parikh',
-    },
-    {
+        title: t('groomTitle'),
+        text: t('groomText'),
+    }
+    const brideCard = {
         icon: '✾',
         eyebrow: '',
-        title: 'Ms. Rashmi Goyal',
-        text: 'Granddaughter of Mrs. Geeta Ghanshyam Ji Goyal,\nDaughter of Mrs. Babita Sunil Goyal',
+        title: t('brideTitle'),
+        text: t('brideText'),
         // to: '/our-story',
         // cta: 'Read Our Story',
     }
+
+    return [
+    {
+        icon: '॥ श्री नाथजी ॥',
+        iconClass: 'font-devanagari font-semibold text-gold text-lg sm:text-xl tracking-wide mb-4',
+        title: t('inviteTitle'),
+        text: t('inviteText'),
+        flourish: true,
+    },
+    // /invitation/u2 leads with the bride
+    ...(brideFirst ? [brideCard, groomCard] : [groomCard, brideCard])
     //,
     // {
     //     title: "You're Invited",
@@ -52,14 +58,19 @@ const teaserCards = [
     //     to: '/our-story',
     //     cta: 'Read Our Story',
     // },
-]
+    ]
+}
 
-export default function Home() {
+export default function Invitation() {
     const [revealed, setRevealed] = useState(false)
     const teaserRef = useRef(null)
+    const { reveal } = useReveal()
+    const { t, w, couple, brideFirst } = useLang()
+    const teaserCards = buildTeaserCards(t, brideFirst)
 
     const handleReveal = () => {
         setRevealed(true)
+        reveal()
         fireRevealConfetti()
     }
 
@@ -87,7 +98,7 @@ export default function Home() {
                         transition={{ duration: 0.6 }}
                         className="font-heading font-semibold tracking-[0.3em] uppercase text-[#e36393] text-xs sm:text-sm mb-3"
                     >
-                        Something Special Awaits
+                        {t('heroEyebrow')}
                     </motion.p>
 
                     <motion.h1
@@ -96,7 +107,7 @@ export default function Home() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="font-display text-5xl sm:text-6xl text-maroon leading-tight mb-8"
                     >
-                        {wedding.groomFirst} &amp; {wedding.brideFirst}
+                        {couple[0]} &amp; {couple[1]}
                     </motion.h1>
 
                     {/* the single big scratch flower */}
@@ -109,10 +120,10 @@ export default function Home() {
                         <ScratchCard onReveal={handleReveal}>
                             <div className="flex flex-col items-center justify-center text-center">
                                 <p className="font-heading font-semibold tracking-[0.12em] uppercase text-[#e36393] text-base sm:text-lg mb-2">
-                                    Save Our Date
+                                    {t('heroSaveDate')}
                                 </p>
                                 <p className="font-heading font-semibold text-xl sm:text-3xl md:text-4xl text-maroon leading-snug mb-2 text-balance">
-                                    {wedding.weddingDateDisplay}
+                                    {w.weddingDateDisplay}
                                 </p>
 
                             </div>
@@ -146,7 +157,7 @@ export default function Home() {
                                 </div>
                                 <div>
                                     <p className="text-maroon-dark/70 font-heading font-bold text-xl sm:text-2xl leading-snug text-balance">
-                                        Formal Invitation to Follow
+                                        {t('heroFormal')}
                                     </p>
                                 </div>
                                 {/* <div>
