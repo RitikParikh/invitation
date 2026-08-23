@@ -12,6 +12,8 @@ import Footer from '../components/Footer'
 
 const teaserCards = [
     {
+        icon: '॥ श्री नाथजी ॥',
+        iconClass: 'font-devanagari font-semibold text-gold text-lg sm:text-xl tracking-wide mb-4',
         title: "You're Invited",
         text: 'By the boundless grace of Shri Nath Ji.\nJoin us as we begin a new chapter filled with love, laughter, and tradition.',
         flourish: true,
@@ -160,10 +162,10 @@ export default function Home() {
                                         Our Story &amp; Events
                                     </Link>
                                     <Link
-                                        to="/rsvp"
+                                        to="/gallery"
                                         className="px-6 py-3 rounded-full border-2 border-maroon text-maroon font-heading font-semibold text-base hover:bg-maroon hover:text-cream transition-colors"
                                     >
-                                        RSVP Now
+                                        Gallery
                                     </Link>
                                 </div> */}
                             </motion.div>

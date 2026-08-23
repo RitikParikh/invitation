@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Noto+Serif+Devanagari:wght@500;600&family=Poppins:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -34,6 +34,10 @@ body {
 
 .font-heading {
   font-family: var(--font-heading);
+}
+
+.font-devanagari {
+  font-family: 'Noto Serif Devanagari', 'Kohinoor Devanagari', 'Nirmala UI', serif;
 }
 
 .mandala-border {

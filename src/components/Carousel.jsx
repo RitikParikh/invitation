@@ -78,7 +78,9 @@ export default function Carousel({ cards = [], interval = 3000 }) {
                     }}
                     className="w-full min-h-[19rem] sm:min-h-[21rem] flex flex-col items-center justify-center text-center px-12 sm:px-20 py-6 cursor-grab active:cursor-grabbing"
                 >
-                    {card.icon && <p className="text-gold text-3xl mb-4">{card.icon}</p>}
+                    {card.icon && (
+                        <p className={card.iconClass ?? 'text-gold text-3xl mb-4'}>{card.icon}</p>
+                    )}
 
                     {card.eyebrow && (
                         <p className="font-heading tracking-[0.3em] uppercase text-gold text-xs sm:text-sm mb-3">
