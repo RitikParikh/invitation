@@ -1,5 +1,16 @@
+import { IMAGES } from './lib/images'
+import { MUSIC } from './lib/music'
+
+const venue = 'Valley View Garden Vatika'
+const venueHi = 'वैली व्यू गार्डन वाटिका'
+const hotel = "Tripli Hotel, Sector 13"
+const hotelHi = "ट्रिपली होटल, सेक्टर 13"
 // Edit this file to personalize the invitation with your real details.
 export const wedding = {
+  // Background music, started when the guest taps the envelope. Leave '' for no music.
+  // Either drop an mp3 into public/music/ and use '/music/song.mp3', or paste a direct
+  // link to an audio file (must end in .mp3/.m4a etc. — YouTube/Spotify page links won't play).
+  musicUrl: MUSIC.music,
   brideFirst: 'Rashmi',
   groomFirst: 'Ritik',
   brideFull: 'Rashmi Goyal',
@@ -8,8 +19,9 @@ export const wedding = {
   // ISO date string used for the countdown + hero date
   weddingDateISO: '2026-12-11T10:00:00',
   weddingDateDisplay: '11th December 2026',
+  street: 'Sector 13',
   city: 'Udaipur, Rajasthan',
-  venue: 'Valley View Garden Vatika',
+  venue: venue,
   address: 'Udaipur, Rajasthan',
   mapsUrl: 'https://maps.app.goo.gl/vskicYuL9vjrwTkK6',
   events: [
@@ -17,35 +29,56 @@ export const wedding = {
       name: 'Engagement',
       date: '11th December 2026',
       time: '9:00 AM',
-      venue: 'Residence',
-      description: 'A joyful turmeric ceremony to bless the couple with prosperity and glow.',
+      venue: venue,
+      description: 'An elegant ceremony marking the beautiful beginning of our formal commitment to a lifetime together.',
     },
     {
-      name: 'Haldi Ceremony',
+      name: 'Ganpati Sthapana',
+      date: '11 December 2026',
+      time: '9:00 PM',
+      venue: venue,
+      description: 'Invoking the divine presence and blessings of Lord Ganesha for an auspicious beginning.',
+    },
+    {
+      name: 'Mangal Kalash',
+      date: '11 December 2026',
+      time: '10:00 PM',
+      venue: venue,
+      description: 'A sacred ritual of establishing the holy Kalash to bring prosperity and bliss to married life.',
+    },
+    {
+      name: 'Haldi Carnival',
       date: '11th December 2026',
       time: '9:00 AM',
-      venue: 'Residence',
-      description: 'A joyful turmeric ceremony to bless the couple with prosperity and glow.',
+      venue: venue,
+      description: 'A vibrant morning filled with cheerful music, colorful drapes.',
     },
     {
-      name: 'Sangeet',
+      name: 'Grah Shanti',
+      date: '12th December 2026',
+      time: '1:30 PM',
+      venue: venue,
+      description: 'You are cordially invited to the holy Grah Shanti Yajna, organized to seek cosmic blessings, peace, and prosperity for the couple.',
+    },
+    {
+      name: 'Barat',
       date: '11th December 2026',
-      time: '7:00 PM',
-      venue: 'The Grand Palace Ballroom',
-      description: 'An evening of performances, music, and dancing with family and friends.',
+      time: '5:00 PM',
+      venue: hotel,
+      description: 'A warm welcome to join the joyous moments of the groom\'s traditional sehra-bandi and royal wedding procession.',
     },
     {
       name: 'Reception',
       date: '11th December 2026',
       time: '7:30 PM',
-      venue: 'The Grand Palace Banquet Hall',
+      venue: venue,
       description: 'Dinner and celebration as husband and wife for the very first time.',
     },
     {
       name: 'Wedding Ceremony',
       date: '11th December 2026',
       time: '10:00 AM',
-      venue: 'The Grand Palace Lawns',
+      venue: venue,
       description: 'The sacred pheras and rituals uniting Rashmi & Ritik for life.',
     },
   ],
@@ -72,15 +105,37 @@ export const wedding = {
     },
   ],
   gallery: [
-    'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80',
-    'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80',
-    'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&q=80',
-    'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=80',
-    'https://images.unsplash.com/photo-1583939411023-14ab3ec39f04?w=800&q=80',
-    'https://images.unsplash.com/photo-1594736797933-d0f06ba0ff43?w=800&q=80',
-    'https://images.unsplash.com/photo-1610736342470-2a1195c4c39e?w=800&q=80',
-    'https://images.unsplash.com/photo-1622037022824-0c71d511ad78?w=800&q=80',
+    IMAGES.image1,
+    IMAGES.image2,
+    IMAGES.image3,
+    IMAGES.image4,
+    IMAGES.image5,
+    IMAGES.image6,
+    IMAGES.image7,
+    IMAGES.image8,
   ],
+  // Family invitation lists — shown only when the link carries ?family=<key>,
+  // e.g. /?family=family1 or /u2?family=family1&language=hn. Add family2, family3 … the same way.
+  familyInvites: {
+    family1: [
+      {
+        title: 'Special Requests',
+        names: ['Kusum - Rajnish', 'Anita - Late Shaymsunder', 'Jagrati - Narendra', 'Himani - Vivak', 'Niyati, Nishi'],
+      },
+      {
+        title: 'Eager to Welcome',
+        names: ['Nirmal - Krishn Das Ji', 'Upasna - Brijesh Ji', 'Sadhan - Pankaj Ji', 'Mardul, Palash', 'Somya, Daksh'],
+      },
+      {
+        title: 'Seekers of a Glimpse',
+        names: ['Mrs. Chandrakanta', 'Pushpa - Chandrakishor', 'All Maya Family'],
+      },
+      {
+        title: 'Baal Aagrah',
+        names: ['Anupriya'],
+      },
+    ],
+  },
   contact: {
     phone: '+91 ----- -----',
     email: 'rashmi.ritik.wedding@example.com',
@@ -94,45 +149,67 @@ export const weddingHi = {
   brideFirst: 'रश्मि',
   groomFirst: 'रितिक',
   brideFull: 'रश्मि गोयल',
-  groomFull: 'रितिक पारिख',
+  groomFull: 'रितिक पारीख',
   weddingDateDisplay: '11 दिसंबर 2026',
   city: 'उदयपुर, राजस्थान',
-  venue: 'वैली व्यू गार्डन वाटिका',
+  street: 'सेक्टर-13',
+  venue: venueHi,
   address: 'उदयपुर, राजस्थान',
   events: [
     {
       name: 'सगाई',
       date: '11 दिसंबर 2026',
-      time: 'प्रातः 9:00',
-      venue: 'निवास स्थान',
+      time: 'प्रातः 7:30',
+      venue: venueHi,
       description: 'वर-वधू के शुभ मिलन का पहला वचन, परिवारजनों के आशीर्वाद के साथ।',
     },
     {
-      name: 'हल्दी',
+      name: 'गणपति स्थापना',
       date: '11 दिसंबर 2026',
-      time: 'प्रातः 9:00',
-      venue: 'निवास स्थान',
-      description: 'हल्दी की मंगल रस्म, जो वर-वधू को सुख-समृद्धि और निखार का आशीर्वाद देती है।',
+      time: 'सायं 9:00',
+      venue: venueHi,
+      description: 'प्रथम पूज्य भगवान श्री गणेश के आह्वान और मंगलकारी स्थापना।',
     },
     {
-      name: 'संगीत',
+      name: 'मंगल कलश',
       date: '11 दिसंबर 2026',
-      time: 'सायं 7:00',
-      venue: 'ग्रैंड पैलेस बॉलरूम',
-      description: 'परिवार और मित्रों के साथ नृत्य, संगीत और प्रस्तुतियों की एक यादगार संध्या।',
+      time: 'सायं 10:00',
+      venue: venueHi,
+      description: 'वैवाहिक जीवन की मंगलकामना हेतु पवित्र कलश स्थापना।',
+    },
+    {
+      name: 'फूलों की हल्दी',
+      date: '11 दिसंबर 2026',
+      time: 'प्रातः 10:30',
+      venue: venueHi,
+      description: 'परिवार और मित्रों के साथ नृत्य, संगीत और प्रस्तुतियों की एक यादगार समारोह।',
+    },
+    {
+      name: 'ग्रह शांति',
+      date: '12 दिसंबर 2026',
+      time: 'अपराह्न 1:30',
+      venue: venueHi,
+      description: 'नवग्रहों की कृपा, सुख-समृद्धि और वैवाहिक जीवन की मंगलकामना हेतु आयोजित ग्रह शांति यज्ञ में आपका सादर आमंत्रण।',
+    },
+    {
+      name: 'वर निकासी',
+      date: '11 दिसंबर 2026',
+      time: 'अपराह्न 5:00',
+      venue: hotelHi,
+      description: 'दूल्हे राजा की सेहराबंदी और मंगलमय विवाह यात्रा (निकासी) के आनंदमय क्षणों में आपका हार्दिक स्वागत है।',
     },
     {
       name: 'प्रीतिभोज',
       date: '11 दिसंबर 2026',
       time: 'सायं 7:30',
-      venue: 'ग्रैंड पैलेस बैंक्वेट हॉल',
+      venue: venueHi,
       description: 'पति-पत्नी के रूप में पहली बार, स्नेहभोज और उत्सव के साथ।',
     },
     {
       name: 'विवाह संस्कार',
-      date: '11 दिसंबर 2026',
-      time: 'प्रातः 10:00',
-      venue: 'ग्रैंड पैलेस लॉन',
+      date: '',
+      time: 'रात्रि 03:00',
+      venue: venueHi,
       description: 'पवित्र फेरे और रीति-रिवाज, जो रश्मि और रितिक को जीवन भर के लिए एक करते हैं।',
     },
   ],
@@ -158,6 +235,26 @@ export const weddingHi = {
       text: 'परिवार, मित्रों और पीढ़ियों से चली आ रही परंपराओं के सान्निध्य में रश्मि और रितिक विवाह के बंधन में बँध रहे हैं।',
     },
   ],
+  familyInvites: {
+    family1: [
+      {
+        title: 'विशेष आग्रह',
+        names: ['कुसुम - रजनीश', 'अनीता - स्व. श्यामसुंदर', 'जागृति - नरेंद्र', 'हिमानी - विवेक', 'नियति, निशि'],
+      },
+      {
+        title: 'स्वागतोत्सुक',
+        names: ['निर्मल - कृष्णदास जी', 'उपासना - बृजेश जी', 'साधना - पंकज जी', 'मृदुल, पलाश', 'सौम्या, दक्ष'],
+      },
+      {
+        title: 'दर्शनाभिलाषी',
+        names: ['श्रीमती चंद्रकांता', 'पुष्पा - चंद्रकिशोर', 'समस्त माया परिवार'],
+      },
+      {
+        title: 'बाल आग्रह',
+        names: ['अनुप्रिया'],
+      },
+    ],
+  },
 }
 
 export const getWedding = (lang) => (lang === 'hi' ? weddingHi : wedding)

@@ -4,6 +4,19 @@ export const strings = {
         navHome: 'Home',
         navStory: 'Our Story',
         navGallery: 'Gallery',
+        navEvents: 'Events',
+        navVenue: 'Venue',
+        heroTogether: 'Together with their families',
+        heroRequest: 'request the pleasure of your company at their wedding',
+        scrollDown: 'Scroll down',
+        countdownTitle: 'Counting down to forever',
+        familiesTitle: 'The Families',
+        scheduleEyebrow: 'Join us for',
+        galleryEyebrow: 'Moments & memories',
+        familyEyebrow: 'With love and regards',
+        familyTitle: 'Awaiting Your Presence',
+        envelopeEyebrow: 'You have received an invitation',
+        envelopeTap: 'Tap to open',
 
         heroEyebrow: 'Something Special Awaits',
         heroSaveDate: 'Save Our Date',
@@ -21,7 +34,7 @@ export const strings = {
         groomTitle: 'Mr. Ritik Parikh',
         groomText:
             'Grandson of Mrs. Chandrakanta & Late Shri Natwarlal Parikh,\nSon of Mrs. Monika Yashwant Parikh',
-        brideTitle: 'Miss. Rashmi Goyal',
+        brideTitle: 'Ms. Rashmi Goyal',
         brideText:
             'Granddaughter of Mrs. Geeta Ghanshyam Ji Goyal,\nDaughter of Mrs. Babita Sunil Goyal',
 
@@ -46,6 +59,19 @@ export const strings = {
         navHome: 'होम',
         navStory: 'हमारी कहानी',
         navGallery: 'तस्वीरें',
+        navEvents: 'समारोह',
+        navVenue: 'स्थल',
+        heroTogether: 'परिवारजनों सहित',
+        heroRequest: 'अपने विवाह समारोह में आपकी गरिमामयी उपस्थिति की कामना करते हैं',
+        scrollDown: 'नीचे देखें',
+        countdownTitle: 'शुभ घड़ी की प्रतीक्षा',
+        familiesTitle: 'परिवार',
+        scheduleEyebrow: 'आप सादर आमंत्रित हैं',
+        galleryEyebrow: 'यादें और पल',
+        familyEyebrow: 'सप्रेम एवं सादर',
+        familyTitle: 'आपकी प्रतीक्षा में',
+        envelopeEyebrow: 'आपके लिए एक निमंत्रण आया है',
+        envelopeTap: 'खोलने के लिए टैप करें',
 
         heroEyebrow: 'कुछ ख़ास आपका इंतज़ार कर रहा है',
         heroSaveDate: 'तारीख़ याद रखें',
@@ -60,9 +86,9 @@ export const strings = {
         inviteTitle: 'आप आमंत्रित हैं',
         inviteText:
             'श्री नाथजी की असीम कृपा से।\nप्रेम, हँसी और परंपरा से भरे इस नए अध्याय के आरंभ में हमारे साथ सम्मिलित हों।',
-        groomTitle: 'चिरंजीव रितिक पारिख',
+        groomTitle: 'चिरंजीव रितिक पारीख',
         groomText:
-            'श्रीमती चंद्रकांता एवं स्वर्गीय नटवरलाल पारिख के सुपौत्र,\nसौभाग्यवती मोनिका यशवंत पारिख के सुपुत्र',
+            'श्रीमती चंद्रकांता एवं स्वर्गीय नटवरलाल पारीख के सुपौत्र,\nसौभाग्यवती मोनिका यशवंत पारीख के सुपुत्र',
         brideTitle: 'सौभाग्यकांक्षी रश्मि गोयल',
         brideText:
             'सौभाग्यवती गीता घनश्याम जी गोयल की सुपौत्री,\nसौभाग्यवती बबीता सुनील गोयल की सुपुत्री',

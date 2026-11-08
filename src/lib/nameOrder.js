@@ -1,7 +1,6 @@
-import { matchPath, useLocation, useSearchParams } from 'react-router-dom'
-import { ROUTES } from './routes'
+import { useLocation, useSearchParams } from 'react-router-dom'
 
-// /invitation/u2 puts the bride first — for the bride's side of the guest list.
+// /u2 or /invitation/u2 (u2 as the last part of the path) puts the bride first — for the bride's side of the guest list.
 // Anything else (including plain /invitation) keeps the groom first.
 export const BRIDE_FIRST_VARIANT = 'u2'
 
@@ -13,9 +12,9 @@ export function useNameOrder() {
     const { pathname } = useLocation()
     const [searchParams] = useSearchParams()
 
-    const fromPath = matchPath(`${ROUTES.invitation}/:variant`, pathname)?.params?.variant
-    const raw = (fromPath ?? searchParams.get(VARIANT_PARAM) ?? '').trim().toLowerCase()
-    const brideFirst = raw === BRIDE_FIRST_VARIANT
+    const lastSegment = pathname.split('/').filter(Boolean).pop()?.trim().toLowerCase()
+    const fromQuery = searchParams.get(VARIANT_PARAM)?.trim().toLowerCase()
+    const brideFirst = lastSegment === BRIDE_FIRST_VARIANT || fromQuery === BRIDE_FIRST_VARIANT
 
     return { brideFirst, variant: brideFirst ? BRIDE_FIRST_VARIANT : null }
 }
