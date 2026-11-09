@@ -1,11 +1,11 @@
 import { useLayoutEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Countdown from '../components/Countdown'
 import Footer from '../components/Footer'
 import { useLang } from '../lib/LanguageContext'
 import { IMAGES } from '../lib/images'
 import { SECTIONS } from '../lib/routes'
+import { useFamilyInvite } from '../lib/familyInvite'
 
 const fadeUp = {
     hidden: { opacity: 0, y: 28 },
@@ -39,9 +39,8 @@ function SectionTitle({ eyebrow, title, light = false }) {
 
 export default function Home() {
     const { t, w, couple, brideFirst } = useLang()
-    const [searchParams] = useSearchParams()
-    // ?family=family1 picks which family's invitation list to show; no/unknown key → section hidden
-    const familyGroups = w.familyInvites?.[searchParams.get('family')?.trim().toLowerCase()] ?? null
+    // ?family=family1 → show that family's invitation list and hide "Our Story"
+    const familyGroups = useFamilyInvite()
     const [lightbox, setLightbox] = useState(null)
 
     // once the envelope opens, always start at the very top (the hero card) —
@@ -160,7 +159,8 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* ───────── Our story ───────── */}
+            {/* ───────── Our story (hidden on family links) ───────── */}
+            {!familyGroups && (
             <section id={SECTIONS.story} className="relative bg-blush py-20 px-5 scroll-mt-16">
                 <SectionTitle eyebrow={t('storyEyebrow')} title={t('storyTitle')} />
                 <div className="relative max-w-4xl mx-auto">
@@ -187,6 +187,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+            )}
 
             {/* ───────── Events on the bougainvillea wall ───────── */}
             <section

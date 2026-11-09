@@ -120,7 +120,7 @@ export const wedding = {
     family1: [
       {
         title: 'Special Requests',
-        names: ['Kusum - Rajnish', 'Anita - Late Shaymsunder', 'Jagrati - Narendra', 'Himani - Vivak', 'Niyati, Nishi'],
+        names: ['Kusum - Rajnish', 'Jagrati - Narendra', 'Anita - Late Shaymsunder', 'Himani - Vivak', 'Niyati, Nishi'],
       },
       {
         title: 'Eager to Welcome',
@@ -239,11 +239,11 @@ export const weddingHi = {
     family1: [
       {
         title: 'विशेष आग्रह',
-        names: ['कुसुम - रजनीश', 'अनीता - स्व. श्यामसुंदर', 'जागृति - नरेंद्र', 'हिमानी - विवेक', 'नियति, निशि'],
+        names: ['कुसुम - रजनीश', 'जागृति - नरेंद्र', 'अनीता - स्व. श्यामसुंदर', 'हिमानी - विवेक', 'नियति, निशि'],
       },
       {
         title: 'स्वागतोत्सुक',
-        names: ['निर्मल - कृष्णदास जी', 'उपासना - बृजेश जी', 'साधना - पंकज जी', 'मृदुल, पलाश', 'सौम्या, दक्ष'],
+        names: ['निर्मल - कृष्णदास जी', 'उपासना - बृजेश जी', 'साधना - पंकज जी', 'मृदुल, पलाश', 'सौम्य, दक्ष'],
       },
       {
         title: 'दर्शनाभिलाषी',

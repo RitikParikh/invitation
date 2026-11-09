@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useLang } from '../lib/LanguageContext'
 import LangSwitch from './LangSwitch'
 import { SECTIONS } from '../lib/routes'
+import { useFamilyInvite } from '../lib/familyInvite'
 
-const links = [
+const allLinks = [
   { id: SECTIONS.families, key: 'familiesTitle' },
   { id: SECTIONS.story, key: 'navStory' },
   { id: SECTIONS.events, key: 'navEvents' },
@@ -23,6 +24,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const { t, couple } = useLang()
+  // family links have no "Our Story" section, so drop its menu link too
+  const links = useFamilyInvite() ? allLinks.filter((l) => l.id !== SECTIONS.story) : allLinks
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30)
