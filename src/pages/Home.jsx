@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 import { useLang } from '../lib/LanguageContext'
 import { IMAGES } from '../lib/images'
 import { SECTIONS } from '../lib/routes'
-import { useFamilyInvite } from '../lib/familyInvite'
+import { useFamilyInvite, useShowStory } from '../lib/familyInvite'
 
 const fadeUp = {
     hidden: { opacity: 0, y: 28 },
@@ -41,6 +41,7 @@ export default function Home() {
     const { t, w, couple, brideFirst } = useLang()
     // ?family=family1 → show that family's invitation list and hide "Our Story"
     const familyGroups = useFamilyInvite()
+    const showStory = useShowStory()
     const [lightbox, setLightbox] = useState(null)
 
     // once the envelope opens, always start at the very top (the hero card) —
@@ -159,8 +160,8 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* ───────── Our story (hidden on family links) ───────── */}
-            {!familyGroups && (
+            {/* ───────── Our story (hidden unless showStory is on; always hidden on family links) ───────── */}
+            {showStory && (
             <section id={SECTIONS.story} className="relative bg-blush py-20 px-5 scroll-mt-16">
                 <SectionTitle eyebrow={t('storyEyebrow')} title={t('storyTitle')} />
                 <div className="relative max-w-4xl mx-auto">
@@ -208,7 +209,8 @@ export default function Home() {
                                 <p className="text-gold text-2xl mb-2">✿</p>
                                 <h3 className="font-heading text-2xl font-bold text-maroon mb-2">{ev.name}</h3>
                                 <p className="font-heading font-semibold text-[#e36393] mb-1">
-                                    {ev.date} · {ev.time}
+                                    {/* either part may be blank — only put the dot between two real values */}
+                                    {[ev.date, ev.time].filter(Boolean).join(' · ')}
                                 </p>
                                 <p className="text-sm text-maroon-dark/70 mb-3">{ev.venue}</p>
                                 <p className="text-sm text-maroon-dark/80 leading-relaxed">{ev.description}</p>

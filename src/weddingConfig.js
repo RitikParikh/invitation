@@ -7,6 +7,9 @@ const hotel = "Tripli Hotel, Sector 13"
 const hotelHi = "ट्रिपली होटल, सेक्टर 13"
 // Edit this file to personalize the invitation with your real details.
 export const wedding = {
+  // "Our Story" section + its menu link. false = hidden everywhere (content below is kept);
+  // set back to true to show it again. Family links (?family=…) always hide it.
+  showStory: false,
   // Background music, started when the guest taps the envelope. Leave '' for no music.
   // Either drop an mp3 into public/music/ and use '/music/song.mp3', or paste a direct
   // link to an audio file (must end in .mp3/.m4a etc. — YouTube/Spotify page links won't play).
@@ -28,20 +31,20 @@ export const wedding = {
     {
       name: 'Engagement',
       date: '11th December 2026',
-      time: '9:00 AM',
+      time: '7:30 AM',
       venue: venue,
       description: 'An elegant ceremony marking the beautiful beginning of our formal commitment to a lifetime together.',
     },
     {
       name: 'Ganpati Sthapana',
-      date: '11 December 2026',
+      date: '11th December 2026',
       time: '9:00 PM',
       venue: venue,
       description: 'Invoking the divine presence and blessings of Lord Ganesha for an auspicious beginning.',
     },
     {
       name: 'Mangal Kalash',
-      date: '11 December 2026',
+      date: '11th December 2026',
       time: '10:00 PM',
       venue: venue,
       description: 'A sacred ritual of establishing the holy Kalash to bring prosperity and bliss to married life.',
@@ -49,7 +52,7 @@ export const wedding = {
     {
       name: 'Haldi Carnival',
       date: '11th December 2026',
-      time: '9:00 AM',
+      time: '10:30 AM',
       venue: venue,
       description: 'A vibrant morning filled with cheerful music, colorful drapes.',
     },
@@ -76,8 +79,8 @@ export const wedding = {
     },
     {
       name: 'Wedding Ceremony',
-      date: '11th December 2026',
-      time: '10:00 AM',
+      date: '',
+      time: '3:00 AM',
       venue: venue,
       description: 'The sacred pheras and rituals uniting Rashmi & Ritik for life.',
     },
@@ -118,6 +121,24 @@ export const wedding = {
   // e.g. /?family=family1 or /u2?family=family1&language=hn. Add family2, family3 … the same way.
   familyInvites: {
     family1: [
+      {
+        title: 'Special Requests',
+        names: ['Kusum - Rajnish', 'Jagrati - Narendra', 'Anita - Late Shaymsunder', 'Himani - Vivak', 'Niyati, Nishi'],
+      },
+      {
+        title: 'Eager to Welcome',
+        names: ['Nirmal - Krishn Das Ji', 'Upasna - Brijesh Ji', 'Sadhan - Pankaj Ji', 'Mardul, Palash', 'Somya, Daksh'],
+      },
+      {
+        title: 'Seekers of a Glimpse',
+        names: ['Mrs. Chandrakanta', 'Pushpa - Chandrakishor', 'All Maya Family'],
+      },
+      {
+        title: 'Baal Aagrah',
+        names: ['Anupriya'],
+      },
+    ],
+    family2: [
       {
         title: 'Special Requests',
         names: ['Kusum - Rajnish', 'Jagrati - Narendra', 'Anita - Late Shaymsunder', 'Himani - Vivak', 'Niyati, Nishi'],

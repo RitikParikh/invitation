@@ -12,3 +12,10 @@ export function useFamilyInvite() {
     const key = searchParams.get('family')?.trim().toLowerCase()
     return (key && w.familyInvites?.[key]) || null
 }
+
+/** Whether "Our Story" is shown: switched on in weddingConfig (showStory) and not a family link. */
+export function useShowStory() {
+    const { w } = useLang()
+    const familyGroups = useFamilyInvite()
+    return Boolean(w.showStory) && !familyGroups
+}
