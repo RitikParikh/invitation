@@ -118,9 +118,9 @@ export const wedding = {
     IMAGES.image8,
   ],
   // Family invitation lists — shown only when the link carries ?family=<key>,
-  // e.g. /?family=family1 or /u2?family=family1&language=hn. Add family2, family3 … the same way.
+  // e.g. /?fa=fa1 or /u2?fa=fa1&language=hn. Add fa2, fa3 … the same way.
   familyInvites: {
-    family1: [
+    fa1: [
       {
         title: 'Special Requests',
         names: ['Kusum - Rajnish', 'Jagrati - Narendra', 'Anita - Late Shaymsunder', 'Himani - Vivak', 'Niyati, Nishi'],
@@ -257,7 +257,7 @@ export const weddingHi = {
     },
   ],
   familyInvites: {
-    family1: [
+    fa1: [
       {
         title: 'विशेष आग्रह',
         names: ['कुसुम - रजनीश', 'जागृति - नरेंद्र', 'अनीता - स्व. श्यामसुंदर', 'हिमानी - विवेक', 'नियति, निशि'],

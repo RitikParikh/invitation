@@ -39,7 +39,7 @@ function SectionTitle({ eyebrow, title, light = false }) {
 
 export default function Home() {
     const { t, w, couple, brideFirst } = useLang()
-    // ?family=family1 → show that family's invitation list and hide "Our Story"
+    // ?fa=fa1 → show that family's invitation list and hide "Our Story"
     const familyGroups = useFamilyInvite()
     const showStory = useShowStory()
     const [lightbox, setLightbox] = useState(null)
