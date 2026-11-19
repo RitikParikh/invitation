@@ -8,7 +8,7 @@ const hotelHi = "ट्रिपली होटल, सेक्टर 13"
 // Edit this file to personalize the invitation with your real details.
 export const wedding = {
   // "Our Story" section + its menu link. false = hidden everywhere (content below is kept);
-  // set back to true to show it again. Family links (?family=…) always hide it.
+  // set back to true to show it again. Family links (?fa=…) always hide it.
   showStory: false,
   // Background music, started when the guest taps the envelope. Leave '' for no music.
   // Either drop an mp3 into public/music/ and use '/music/song.mp3', or paste a direct
