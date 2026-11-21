@@ -145,7 +145,7 @@ export const wedding = {
       },
       {
         title: 'Eager to Welcome',
-        names: ['Nirmal - Krishn Das Ji', 'Upasna - Brijesh Ji', 'Sadhan - Pankaj Ji', 'Mardul, Palash', 'Somya, Daksh'],
+        names: ['Nirmala - Krishn Das Ji', 'Upasna - Brijesh Ji', 'Sadhan - Pankaj Ji', 'Mardul, Palash', 'Somya, Daksh'],
       },
       {
         title: 'Seekers of a Glimpse',
