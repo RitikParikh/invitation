@@ -58,7 +58,7 @@ export const wedding = {
     },
     {
       name: 'Grah Shanti',
-      date: '12th December 2026',
+      date: '11th December 2026',
       time: '1:30 PM',
       venue: venue,
       description: 'You are cordially invited to the holy Grah Shanti Yajna, organized to seek cosmic blessings, peace, and prosperity for the couple.',
@@ -127,7 +127,7 @@ export const wedding = {
       },
       {
         title: 'Eager to Welcome',
-        names: ['Nirmal - Krishn Das Ji', 'Upasna - Brijesh Ji', 'Sadhan - Pankaj Ji', 'Mardul, Palash', 'Somya, Daksh'],
+        names: ['Nirmala - Krishn Das Ji', 'Upasna - Brijesh Ji', 'Sadhan - Pankaj Ji', 'Mardul, Palash', 'Somya, Daksh'],
       },
       {
         title: 'Seekers of a Glimpse',
@@ -207,7 +207,7 @@ export const weddingHi = {
     },
     {
       name: 'ग्रह शांति',
-      date: '12 दिसंबर 2026',
+      date: '11 दिसंबर 2026',
       time: 'अपराह्न 1:30',
       venue: venueHi,
       description: 'नवग्रहों की कृपा, सुख-समृद्धि और वैवाहिक जीवन की मंगलकामना हेतु आयोजित ग्रह शांति यज्ञ में आपका सादर आमंत्रण।',
@@ -264,7 +264,7 @@ export const weddingHi = {
       },
       {
         title: 'स्वागतोत्सुक',
-        names: ['निर्मल - कृष्णदास जी', 'उपासना - बृजेश जी', 'साधना - पंकज जी', 'मृदुल, पलाश', 'सौम्य, दक्ष'],
+        names: ['निर्मला - कृष्णदास जी', 'उपासना - बृजेश जी', 'साधना - पंकज जी', 'मृदुल, पलाश', 'सौम्य, दक्ष'],
       },
       {
         title: 'दर्शनाभिलाषी',
