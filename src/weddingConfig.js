@@ -38,14 +38,14 @@ export const wedding = {
     {
       name: 'Ganpati Sthapana',
       date: '11th December 2026',
-      time: '9:00 PM',
+      time: '9:00 AM',
       venue: venue,
       description: 'Invoking the divine presence and blessings of Lord Ganesha for an auspicious beginning.',
     },
     {
       name: 'Mangal Kalash',
       date: '11th December 2026',
-      time: '10:00 PM',
+      time: '10:00 AM',
       venue: venue,
       description: 'A sacred ritual of establishing the holy Kalash to bring prosperity and bliss to married life.',
     },
@@ -187,14 +187,14 @@ export const weddingHi = {
     {
       name: 'गणपति स्थापना',
       date: '11 दिसंबर 2026',
-      time: 'सायं 9:00',
+      time: 'प्रातः 9:00',
       venue: venueHi,
       description: 'प्रथम पूज्य भगवान श्री गणेश के आह्वान और मंगलकारी स्थापना।',
     },
     {
       name: 'मंगल कलश',
       date: '11 दिसंबर 2026',
-      time: 'सायं 10:00',
+      time: 'प्रातः 10:00',
       venue: venueHi,
       description: 'वैवाहिक जीवन की मंगलकामना हेतु पवित्र कलश स्थापना।',
     },
