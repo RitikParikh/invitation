@@ -15,6 +15,7 @@ export const strings = {
         galleryEyebrow: 'Moments & memories',
         familyEyebrow: 'With love and regards',
         familyTitle: 'Awaiting Your Presence',
+        attireLabel: 'Dress code',
         envelopeEyebrow: 'You have received an invitation',
         envelopeTap: 'Tap to open',
 
@@ -70,6 +71,7 @@ export const strings = {
         galleryEyebrow: 'यादें और पल',
         familyEyebrow: 'सप्रेम एवं सादर',
         familyTitle: 'आपकी प्रतीक्षा में',
+        attireLabel: 'पोशाक',
         envelopeEyebrow: 'आपके लिए एक निमंत्रण आया है',
         envelopeTap: 'खोलने के लिए टैप करें',
 

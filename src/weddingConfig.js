@@ -55,6 +55,8 @@ export const wedding = {
       time: '10:30 AM',
       venue: venue,
       description: 'A vibrant morning filled with cheerful music, colorful drapes.',
+      attire: 'Sky Blue & Pestal Glam',
+      'badge_color': '#79c4f0ff'
     },
     {
       name: 'Grah Shanti',
@@ -186,6 +188,8 @@ export const weddingHi = {
       time: 'प्रातः 10:30',
       venue: venueHi,
       description: 'परिवार और मित्रों के साथ नृत्य, संगीत और प्रस्तुतियों की एक यादगार समारोह।',
+      attire: 'स्काई ब्लू और पेस्टल ग्लैम',
+      'badge_color': '#79c4f0ff'
     },
     {
       name: 'ग्रह शांति',

@@ -2,6 +2,7 @@ import { useLayoutEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Countdown from '../components/Countdown'
 import Footer from '../components/Footer'
+import AttireBadge from '../components/AttireBadge'
 import { useLang } from '../lib/LanguageContext'
 import { IMAGES } from '../lib/images'
 import { SECTIONS } from '../lib/routes'
@@ -214,6 +215,7 @@ export default function Home() {
                                 </p>
                                 <p className="text-sm text-maroon-dark/70 mb-3">{ev.venue}</p>
                                 <p className="text-sm text-maroon-dark/80 leading-relaxed">{ev.description}</p>
+                                <AttireBadge attire={ev.attire} color={ev.badge_color ?? ev.badgeColor} />
                             </motion.div>
                         ))}
                     </div>
