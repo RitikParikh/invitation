@@ -1,10 +1,10 @@
 import { IMAGES } from './lib/images'
 import { MUSIC } from './lib/music'
 
-const venue = 'Valley View Garden Vatika'
-const venueHi = 'वैली व्यू गार्डन वाटिका'
-const hotel = "Tripli Hotel, Sector 13"
-const hotelHi = "ट्रिपली होटल, सेक्टर 13"
+export const venue = 'Valley View Garden Vatika'
+export const venueHi = 'वैली व्यू गार्डन वाटिका'
+export const hotel = "Tripli Hotel, Sector 13"
+export const hotelHi = "ट्रिपली होटल, सेक्टर 13"
 // Edit this file to personalize the invitation with your real details.
 export const wedding = {
   // "Our Story" section + its menu link. false = hidden everywhere (content below is kept);
@@ -117,7 +117,7 @@ export const wedding = {
     IMAGES.image7,
     IMAGES.image8,
   ],
-  // Family invitation lists — shown only when the link carries ?family=<key>,
+  // Family invitation lists — shown only when the link carries ?fa=<key>,
   // e.g. /?fa=fa1 or /u2?fa=fa1&language=hn. Add fa2, fa3 … the same way.
   familyInvites: {
     fa1: [
@@ -137,25 +137,7 @@ export const wedding = {
         title: 'Baal Aagrah',
         names: ['Anupriya'],
       },
-    ],
-    family2: [
-      {
-        title: 'Special Requests',
-        names: ['Kusum - Rajnish', 'Jagrati - Narendra', 'Anita - Late Shaymsunder', 'Himani - Vivak', 'Niyati, Nishi'],
-      },
-      {
-        title: 'Eager to Welcome',
-        names: ['Nirmala - Krishn Das Ji', 'Upasna - Brijesh Ji', 'Sadhan - Pankaj Ji', 'Mardul, Palash', 'Somya, Daksh'],
-      },
-      {
-        title: 'Seekers of a Glimpse',
-        names: ['Mrs. Chandrakanta', 'Pushpa - Chandrakishor', 'All Maya Family'],
-      },
-      {
-        title: 'Baal Aagrah',
-        names: ['Anupriya'],
-      },
-    ],
+    ]
   },
   contact: {
     phone: '+91 ----- -----',
@@ -274,7 +256,7 @@ export const weddingHi = {
         title: 'बाल आग्रह',
         names: ['अनुप्रिया'],
       },
-    ],
+    ]
   },
 }
 

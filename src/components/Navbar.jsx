@@ -23,10 +23,13 @@ const scrollToSection = (e, id) => {
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const { t, couple } = useLang()
+  const { t, couple, w } = useLang()
   // family links have no "Our Story" section, so drop its menu link too
-  // drop the Our Story link whenever that section is hidden
-  const links = useShowStory() ? allLinks : allLinks.filter((l) => l.id !== SECTIONS.story)
+  // drop the Our Story / Venue links whenever those sections are hidden
+  const showStory = useShowStory()
+  const links = allLinks.filter(
+    (l) => !(l.id === SECTIONS.story && !showStory) && !(l.id === SECTIONS.venue && w.showVenue === false),
+  )
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30)

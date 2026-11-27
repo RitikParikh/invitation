@@ -3,7 +3,7 @@
 // WhatsApp, Instagram, iMessage etc. read the <meta> tags straight from the HTML and never
 // run the React app, so the preview has to be chosen here, before the page is sent:
 //   ?language=hn       → Hindi card (रितिक & रश्मि)
-//   /u2  or  ?u=u2     → bride first (Rashmi & Ritik)
+//   /u2, /u3 or ?u=u2  → bride first (Rashmi & Ritik)
 // The cards are public/og-<en|hi>[-u2].jpg. Keep the names / date below in step with weddingConfig.js.
 
 export const config = {
@@ -35,7 +35,8 @@ const escape = (s) =>
 export function previewTags(url) {
     const lang = HINDI.has(url.searchParams.get('language')?.trim().toLowerCase()) ? 'hi' : 'en'
     const lastSegment = url.pathname.split('/').filter(Boolean).pop()?.trim().toLowerCase()
-    const brideFirst = lastSegment === 'u2' || url.searchParams.get('u')?.trim().toLowerCase() === 'u2'
+    // /u2 and /u3 are both the bride's side
+    const brideFirst = ['u2', 'u3'].includes(lastSegment) || ['u2', 'u3'].includes(url.searchParams.get('u')?.trim().toLowerCase())
 
     const t = TEXT[lang]
     const [a, b] = brideFirst ? [t.names[1], t.names[0]] : t.names

@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Envelope from './components/Envelope'
 import MusicToggle from './components/MusicToggle'
+import { useAutoScroll } from './lib/useAutoScroll'
 import { wedding } from './weddingConfig'
 import { RevealProvider } from './lib/RevealContext'
 import { LanguageProvider } from './lib/LanguageContext'
@@ -14,6 +15,8 @@ import Home from './pages/Home'
 function App() {
   const [opened, setOpened] = useState(false)
   const handleOpened = useCallback(() => setOpened(true), [])
+  // after the envelope opens, the page glides down a step every 5 seconds
+  useAutoScroll(opened)
 
   // background music — only when musicUrl is set in weddingConfig
   const musicUrl = wedding.musicUrl?.trim()

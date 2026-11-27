@@ -253,33 +253,35 @@ export default function Home() {
                 </section>
             )}
 
-            {/* ───────── Venue over the ghat painting ───────── */}
-            <section
-                id={SECTIONS.venue}
-                className="relative min-h-[80svh] flex items-center justify-center px-5 py-24 bg-cover bg-center scroll-mt-16"
-                style={{ backgroundImage: `url(${IMAGES.ghatSunset})` }}
-            >
-                <div className="absolute inset-0 bg-gradient-to-b from-maroon-dark/30 via-maroon-dark/50 to-maroon-dark/80" />
-                <motion.div
-                    {...reveal}
-                    className="relative max-w-xl text-center bg-cream/90 backdrop-blur-sm rounded-2xl shadow-2xl px-8 py-10 border border-gold/50"
+            {/* ───────── Venue over the ghat painting (hidden on /u3) ───────── */}
+            {w.showVenue !== false && (
+                <section
+                    id={SECTIONS.venue}
+                    className="relative min-h-[80svh] flex items-center justify-center px-5 py-24 bg-cover bg-center scroll-mt-16"
+                    style={{ backgroundImage: `url(${IMAGES.ghatSunset})` }}
                 >
-                    <p className="font-heading font-semibold tracking-[0.3em] uppercase text-[#e36393] text-xs sm:text-sm mb-3">
-                        {t('venueEyebrow')}
-                    </p>
-                    <h2 className="font-display text-4xl sm:text-5xl text-maroon mb-3">{w.venue}</h2>
-                    <p className="font-heading text-lg text-maroon-dark/80 mb-1">{w.weddingDateDisplay}</p>
-                    <p className="text-maroon-dark/70 mb-6">{w.street} {w.address}</p>
-                    <a
-                        href={w.mapsUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-block px-7 py-3 rounded-full bg-maroon text-cream font-heading font-semibold text-lg hover:bg-maroon-dark transition-colors shadow-lg"
+                    <div className="absolute inset-0 bg-gradient-to-b from-maroon-dark/30 via-maroon-dark/50 to-maroon-dark/80" />
+                    <motion.div
+                        {...reveal}
+                        className="relative max-w-xl text-center bg-cream/90 backdrop-blur-sm rounded-2xl shadow-2xl px-8 py-10 border border-gold/50"
                     >
-                        {t('mapsCta')}
-                    </a>
-                </motion.div>
-            </section>
+                        <p className="font-heading font-semibold tracking-[0.3em] uppercase text-[#e36393] text-xs sm:text-sm mb-3">
+                            {t('venueEyebrow')}
+                        </p>
+                        <h2 className="font-display text-4xl sm:text-5xl text-maroon mb-3">{w.venue}</h2>
+                        <p className="font-heading text-lg text-maroon-dark/80 mb-1">{w.weddingDateDisplay}</p>
+                        <p className="text-maroon-dark/70 mb-6">{w.street} {w.address}</p>
+                        <a
+                            href={w.mapsUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-block px-7 py-3 rounded-full bg-maroon text-cream font-heading font-semibold text-lg hover:bg-maroon-dark transition-colors shadow-lg"
+                        >
+                            {t('mapsCta')}
+                        </a>
+                    </motion.div>
+                </section>
+            )}
 
             {/* ───────── Gallery ───────── */}
             <section id={SECTIONS.gallery} className="bg-cream py-20 px-5 scroll-mt-16">
